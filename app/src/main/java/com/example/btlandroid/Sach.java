@@ -1,9 +1,3 @@
-package com.example.btlandroid;
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 public class Sach {
     private int id;
     private String tenSach;
@@ -11,28 +5,28 @@ public class Sach {
     private int soTrang;
     private String urlAnh;
     private String moTa;
-    private int loaiSachId;
+    private LoaiSach loaiSach;
 
     public Sach() {
     }
 
-    public Sach(String tenSach, String tacGia, int soTrang, String moTa, String urlAnh, int loaiSachId) {
+    public Sach(String tenSach, String tacGia, int soTrang, String moTa, String urlAnh, LoaiSach loaiSach) {
         this.tenSach = tenSach;
         this.tacGia = tacGia;
         this.soTrang = soTrang;
         this.moTa = moTa;
         this.urlAnh = urlAnh;
-        this.loaiSachId = loaiSachId;
+        this.loaiSach = loaiSach;
     }
 
-    public Sach(int id, String tenSach, String tacGia, int soTrang, String urlAnh, String moTa, int loaiSachId) {
+    public Sach(int id, String tenSach, String tacGia, int soTrang, String urlAnh, String moTa, LoaiSach loaiSach) {
         this.id = id;
         this.tenSach = tenSach;
         this.tacGia = tacGia;
         this.soTrang = soTrang;
         this.urlAnh = urlAnh;
         this.moTa = moTa;
-        this.loaiSachId = loaiSachId;
+        this.loaiSach = loaiSach;
     }
 
     public int getId() {

@@ -11,7 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BTLAndroid"
+
         tools:targetApi="31">
+        <receiver
+            android:name=".NotificationReceiver"
+            android:exported="true"
+            android:enabled="true"
+            tools:ignore="WrongManifestParent" />
+
+        <activity
+            android:name=".TrichDanActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,5 +32,8 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
 
 </manifest>
