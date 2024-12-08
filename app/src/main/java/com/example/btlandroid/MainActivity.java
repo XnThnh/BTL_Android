@@ -2,6 +2,7 @@ package com.example.btlandroid;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,9 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     Button btnNavigate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         btnNavigate = findViewById(R.id.button);
 //        DBHelper dbHelper = new DBHelper(this);
 //        SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -37,5 +42,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        DBHelper db = new DBHelper(this);
+        Intent i = new Intent(this, DanhSachSach.class);
+        startActivity(i);
+
     }
 }
