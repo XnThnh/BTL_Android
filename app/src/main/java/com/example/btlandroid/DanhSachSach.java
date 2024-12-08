@@ -42,6 +42,7 @@ public class DanhSachSach extends AppCompatActivity {
         adapter = new BookRecViewAdapter(this,listSach);
         recView.setAdapter(adapter);
         recView.setLayoutManager(new GridLayoutManager(this,2));
+        db.xoaSach("a");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -59,6 +60,10 @@ public class DanhSachSach extends AppCompatActivity {
 //            Intent i = new Intent(this,DangNhap.class);
 //            startActivity(i);
 //        }
+        if(item.getItemId() == R.id.mnuTrichDan){
+            Intent i = new Intent(this,TrichDanActivity.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 

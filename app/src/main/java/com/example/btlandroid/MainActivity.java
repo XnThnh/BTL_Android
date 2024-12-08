@@ -30,19 +30,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        btnNavigate = findViewById(R.id.button);
+
 //        DBHelper dbHelper = new DBHelper(this);
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Log.d("DBTest", "Database created and data inserted!");
-
-        btnNavigate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, TrichDanActivity.class);
-                startActivity(intent);
-            }
-        });
-
+//        SQLiteDatabase db = dbHelper.getWritableDatabase()
         DBHelper db = new DBHelper(this);
         Intent i = new Intent(this, DanhSachSach.class);
         startActivity(i);

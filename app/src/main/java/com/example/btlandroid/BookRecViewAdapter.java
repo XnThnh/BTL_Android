@@ -1,5 +1,6 @@
 package com.example.btlandroid;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.ViewHolder>{
     private ArrayList<Sach> listSach;
     private Context context;
+    private int vitri;
 
     public BookRecViewAdapter(Context context, ArrayList<Sach> listSach) {
         this.context = context;
@@ -60,14 +62,23 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
                    }
                }
            });
-//           holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
-//               @Override
-//               public boolean onLongClick(View view) {
-//
-//               }
-//           });
-    }
+           holder.parent.setOnLongClickListener(new View.OnLongClickListener() {
+               @Override
+               public boolean onLongClick(View view) {
+                   Intent i = new Intent(context, ChiTietSach.class);
+                   Sach s = listSach.get(holder.getAdapterPosition());
+                   i.putExtra("tenSach",s.getTenSach());
+                   i.putExtra("tacGia",s.getTacGia());
+                   i.putExtra("soTrang",s.getSoTrang());
+                   i.putExtra("anh",s.getUrlAnh());
+                   i.putExtra("moTa",s.getMoTa());
+                   i.putExtra("loaiSachId",s.getLoaiSachId());
+                   context.startActivity(i);
+                   return true;
+               }
+           });
 
+    }
     @Override
     public int getItemCount() {
         return listSach.size();

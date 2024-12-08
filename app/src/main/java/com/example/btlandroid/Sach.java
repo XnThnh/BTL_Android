@@ -1,3 +1,4 @@
+package com.example.btlandroid;
 public class Sach {
     private int id;
     private String tenSach;
@@ -5,28 +6,28 @@ public class Sach {
     private int soTrang;
     private String urlAnh;
     private String moTa;
-    private LoaiSach loaiSach;
+    private int loaiSachId;
 
     public Sach() {
     }
 
-    public Sach(String tenSach, String tacGia, int soTrang, String moTa, String urlAnh, LoaiSach loaiSach) {
+    public Sach(String tenSach, String tacGia, int soTrang, String urlAnh, String moTa, int loaiSachId) {
         this.tenSach = tenSach;
         this.tacGia = tacGia;
         this.soTrang = soTrang;
         this.moTa = moTa;
         this.urlAnh = urlAnh;
-        this.loaiSach = loaiSach;
+        this.loaiSachId = loaiSachId;
     }
 
-    public Sach(int id, String tenSach, String tacGia, int soTrang, String urlAnh, String moTa, LoaiSach loaiSach) {
+    public Sach(int id, String tenSach, String tacGia, int soTrang, String urlAnh, String moTa, int loaiSachId) {
         this.id = id;
         this.tenSach = tenSach;
         this.tacGia = tacGia;
         this.soTrang = soTrang;
         this.urlAnh = urlAnh;
         this.moTa = moTa;
-        this.loaiSach = loaiSach;
+        this.loaiSachId = loaiSachId;
     }
 
     public int getId() {

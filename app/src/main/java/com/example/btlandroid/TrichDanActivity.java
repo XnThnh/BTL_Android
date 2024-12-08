@@ -67,14 +67,7 @@ public class TrichDanActivity extends AppCompatActivity {
             while (cursor.moveToNext()) {
                 @SuppressLint("Range") String tenSach = cursor.getString(cursor.getColumnIndex("tenSach"));
                 listTenSach.add(tenSach);
-
             }
-        }
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Trích dẫn");
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> adapterSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listTenSach);
@@ -237,7 +230,8 @@ public class TrichDanActivity extends AppCompatActivity {
                 int soTrang = cursor.getInt(cursor.getColumnIndex("soTrang"));
                 String anh = cursor.getString(cursor.getColumnIndex("anh"));
                 String moTa = cursor.getString(cursor.getColumnIndex("moTa"));
-                sach = new Sach(id, tenSach, tacGia, soTrang, anh, moTa, null);
+                int loaiSachID = cursor.getInt(cursor.getColumnIndex("loaiSachID"));
+                sach = new Sach(id, tenSach, tacGia, soTrang, anh, moTa, loaiSachID);
             }
         } catch (Exception e) {
             e.printStackTrace();
