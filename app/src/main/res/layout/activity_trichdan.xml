@@ -6,16 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TrichDanActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        tools:ignore="MissingConstraints" />
+    tools:context=".TrichDanActivity"
+    android:layout_marginTop="100dp">
 
     <TextView
         android:id="@+id/textView"
@@ -28,8 +20,8 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="1200dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:padding="10dp" />
 
     <TextView
@@ -44,12 +36,11 @@
     <EditText
         android:id="@+id/input_caunoi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:ems="10"
         android:hint="Nhập câu nói mà bạn thích "
         android:inputType="text"
-        android:padding="10dp"
-        />
+        android:padding="10dp" />
 
     <TableRow
         android:layout_width="match_parent"

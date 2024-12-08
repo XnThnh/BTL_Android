@@ -50,7 +50,8 @@ public class ThemSach extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DBHelper db = new DBHelper(ThemSach.this);
-                Sach s = new Sach(edtTenSach.getText().toString(),edtTacGia.getText().toString(),Integer.parseInt(edtSoTrang.getText().toString()),edtMoTa.getText().toString(),edtURLAnh.getText().toString(),getLoaiSachId(spinner.getSelectedItem().toString()));
+                Sach s = new Sach(edtTenSach.getText().toString(), edtTacGia.getText().toString(), Integer.parseInt(edtSoTrang.getText().toString()),
+                        edtURLAnh.getText().toString(), edtMoTa.getText().toString(), getLoaiSachId(spinner.getSelectedItem().toString()));
                 if(db.themSach(s)){;
                     Intent i = new Intent(ThemSach.this, DanhSachSach.class);
                     startActivity(i);

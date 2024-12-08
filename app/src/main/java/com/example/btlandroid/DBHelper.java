@@ -77,6 +77,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 1', 1)");
         db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 2', 2)");
         db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 3', 3)");
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 4', 4)");
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 5', 5)");
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 6', 6)");
 
 
         db.execSQL("INSERT INTO ThongKe (soSachDaDoc, soCauNoiDaTrich, userId) VALUES (10, 5, 1)");
