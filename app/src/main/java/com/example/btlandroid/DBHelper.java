@@ -59,6 +59,36 @@ public class DBHelper extends SQLiteOpenHelper {
                 "soCauNoiDaTrich INTEGER," +
                 "userId INTEGER," +
                 "FOREIGN KEY(userId) REFERENCES User(id))");
+
+
+        db.execSQL("INSERT INTO LoaiSach (ten) VALUES ('Tiểu thuyết')");
+        db.execSQL("INSERT INTO LoaiSach (ten) VALUES ('Truyện ngắn')");
+        db.execSQL("INSERT INTO LoaiSach (ten) VALUES ('Sách học thuật')");
+
+
+        db.execSQL("INSERT INTO User (username, password, name) VALUES ('user1', 'password1', 'Nguyễn Văn A')");
+        db.execSQL("INSERT INTO User (username, password, name) VALUES ('user2', 'password2', 'Trần Thị B')");
+        db.execSQL("INSERT INTO User (username, password, name) VALUES ('user3', 'password3', 'Lê Văn C')");
+
+
+        db.execSQL("INSERT INTO Sach (tenSach, tacGia, soTrang, anh, moTa, loaiSachId) VALUES ('Sách 1', 'Tác giả A', 200, 'anh1.png', 'Mô tả sách 1', 1)");
+        db.execSQL("INSERT INTO Sach (tenSach, tacGia, soTrang, anh, moTa, loaiSachId) VALUES ('Sách 2', 'Tác giả B', 150, 'anh2.png', 'Mô tả sách 2', 2)");
+        db.execSQL("INSERT INTO Sach (tenSach, tacGia, soTrang, anh, moTa, loaiSachId) VALUES ('Sách 3', 'Tác giả C', 300, 'anh3.png', 'Mô tả sách 3', 3)");
+
+
+        db.execSQL("INSERT INTO DanhGia (danhGia, sachId, userId, rate) VALUES ('Hay', 1, 1, 5)");
+        db.execSQL("INSERT INTO DanhGia (danhGia, sachId, userId, rate) VALUES ('Bình thường', 2, 2, 3)");
+        db.execSQL("INSERT INTO DanhGia (danhGia, sachId, userId, rate) VALUES ('Không hay', 3, 3, 2)");
+
+
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 1', 1)");
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 2', 2)");
+        db.execSQL("INSERT INTO TrichDan (cauNoi, sachId) VALUES ('Câu nói hay 3', 3)");
+
+
+        db.execSQL("INSERT INTO ThongKe (soSachDaDoc, soCauNoiDaTrich, userId) VALUES (10, 5, 1)");
+        db.execSQL("INSERT INTO ThongKe (soSachDaDoc, soCauNoiDaTrich, userId) VALUES (7, 3, 2)");
+        db.execSQL("INSERT INTO ThongKe (soSachDaDoc, soCauNoiDaTrich, userId) VALUES (15, 10, 3)");
     }
 
     @Override
