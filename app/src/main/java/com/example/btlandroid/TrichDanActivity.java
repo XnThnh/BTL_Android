@@ -219,29 +219,24 @@ public class TrichDanActivity extends AppCompatActivity {
     }
     @SuppressLint("Range")
     private Sach getSachById(int sachId, SQLiteDatabase db) {
-        Sach sach = null;
-        Cursor cursor = null;
-        try {
-            cursor = db.rawQuery("SELECT * FROM Sach WHERE id = ?", new String[]{String.valueOf(sachId)});
-            if (cursor != null && cursor.moveToFirst()) {
-                int id = cursor.getInt(cursor.getColumnIndex("id"));
-                String tenSach = cursor.getString(cursor.getColumnIndex("tenSach"));
-                String tacGia = cursor.getString(cursor.getColumnIndex("tacGia"));
-                int soTrang = cursor.getInt(cursor.getColumnIndex("soTrang"));
-                String anh = cursor.getString(cursor.getColumnIndex("anh"));
-                String moTa = cursor.getString(cursor.getColumnIndex("moTa"));
-                int loaiSachID = cursor.getInt(cursor.getColumnIndex("loaiSachID"));
-                sach = new Sach(id, tenSach, tacGia, soTrang, anh, moTa, loaiSachID);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (cursor != null && !cursor.isClosed()) {
-                cursor.close();
-            }
+        Cursor cursor = db.rawQuery("SELECT * FROM Sach WHERE id = ?", new String[]{String.valueOf(sachId)});
+        if (cursor.moveToFirst()) {
+            Sach sach = new Sach(
+                    cursor.getInt(cursor.getColumnIndex("id")),
+                    cursor.getString(cursor.getColumnIndex("tenSach")),
+                    cursor.getString(cursor.getColumnIndex("tacGia")),
+                    cursor.getInt(cursor.getColumnIndex("soTrang")),
+                    cursor.getString(cursor.getColumnIndex("anh")),
+                    cursor.getString(cursor.getColumnIndex("moTa")),
+                    cursor.getInt(cursor.getColumnIndex("loaiSachId"))
+            );
+            cursor.close();
+            return sach;
         }
-        return sach;
+        cursor.close();
+        return null;
     }
+
     private void addCauNoi(String quote, int bookId, SQLiteDatabase db) {
         String insertQuery = "INSERT INTO TrichDan (cauNoi, sachId) VALUES (?, ?)";
         db.execSQL(insertQuery, new Object[]{quote, bookId});
@@ -271,7 +266,7 @@ public class TrichDanActivity extends AppCompatActivity {
                 Sach sach = getSachById(sachId, db);
                 TrichDan trichDan = new TrichDan(id, cauNoi, sach);
                 listTrichDan.add(trichDan);
-                Log.d("TrichDanActivity", "Trích dẫn: " + cauNoi + " - Sách: " + (sach != null ? sach.getTenSach() : "null"));
+                //Log.d("TrichDanActivity", "Trích dẫn: " + cauNoi + " - Sách: " + (sach != null ? sach.getTenSach() : "null"));
             }
         }
         cursor.close();
