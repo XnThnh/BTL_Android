@@ -3,4 +3,5 @@
     <item android:id="@+id/mnuThemSach" android:title="Thêm sách" />
     <item android:id="@+id/mnuDangXuat" android:title="Đăng xuất" />
     <item android:id="@+id/mnuTrichDan" android:title="Trích dẫn" />
+    <item android:id="@+id/mnuThongKe" android:title="Thống kê" />
 </menu>

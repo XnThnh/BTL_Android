@@ -64,6 +64,10 @@ public class DanhSachSach extends AppCompatActivity {
             Intent i = new Intent(this,TrichDanActivity.class);
             startActivity(i);
         }
+        if(item.getItemId() == R.id.mnuThongKe){
+            Intent i = new Intent(this,Thongke.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 
