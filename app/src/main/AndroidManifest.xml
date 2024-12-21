@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -39,6 +40,10 @@
             android:name=".ThemSach"
             android:exported="false"
             android:label="Thêm sách"/>
+        <activity
+            android:name=".Thongke"
+            android:exported="false"
+            android:label="Thống kê"/>
         <activity
 
             android:name=".MainActivity"
