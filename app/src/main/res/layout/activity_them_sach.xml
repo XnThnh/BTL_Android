@@ -41,16 +41,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
-        android:id="@+id/btnHuy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="92dp"
-        android:text="Huỷ"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
     <EditText
         android:id="@+id/edtTacGia"
         android:layout_width="209dp"
@@ -70,14 +60,14 @@
         android:id="@+id/edtMoTa"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Nhap mo ta"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="@+id/edtURLAnh"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/edtURLAnh"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintEnd_toEndOf="@+id/edtSoTrang"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/edtSoTrang"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/textView5"
@@ -94,11 +84,21 @@
         android:id="@+id/btnThem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="256dp"
         android:text="Thêm"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.57"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toEndOf="@+id/btnHuy"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <Button
+        android:id="@+id/btnHuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="256dp"
+        android:text="Huỷ"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <EditText
@@ -146,15 +146,25 @@
 
     <EditText
         android:id="@+id/edtURLAnh"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_width="210dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="15dp"
         android:ems="10"
         android:hint="Nhap URL"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/edtSoTrang"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintBottom_toTopOf="@+id/edtMoTa"
         app:layout_constraintStart_toStartOf="@+id/edtSoTrang"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSoTrang" />
+
+    <Button
+        android:id="@+id/btnWebView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Tham khảo "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

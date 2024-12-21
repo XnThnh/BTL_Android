@@ -52,6 +52,8 @@ public class TrichDanActivity extends AppCompatActivity {
     DBHelper dbHelper;
     SQLiteDatabase db;
     Button btnUpdate;
+    ArrayAdapter<String> adapterSpinner;
+    ArrayList<String> listTenSach;
     private int selectedQuoteId = -1;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -61,7 +63,7 @@ public class TrichDanActivity extends AppCompatActivity {
         setContentView(R.layout.activity_trichdan);
          dbHelper = new DBHelper(this);
          db = dbHelper.getReadableDatabase();
-        ArrayList<String> listTenSach = new ArrayList<>();
+        listTenSach = new ArrayList<>();
         cursor = db.rawQuery("SELECT * FROM Sach", null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
@@ -70,7 +72,7 @@ public class TrichDanActivity extends AppCompatActivity {
             }
         }
         spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapterSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listTenSach);
+        adapterSpinner = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, listTenSach);
         spinner.setAdapter(adapterSpinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -87,6 +89,8 @@ public class TrichDanActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
         getListCauNoi(db);
         adapter.notifyDataSetChanged();
+        adapterSpinner.notifyDataSetChanged();
+
         btnAdd = findViewById(R.id.btnAddQuote);
         editTextCauNoi = findViewById(R.id.input_caunoi);
         btnAdd.setOnClickListener(new View.OnClickListener() {

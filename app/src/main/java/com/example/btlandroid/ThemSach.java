@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class ThemSach extends AppCompatActivity {
     private EditText edtTenSach, edtTacGia, edtSoTrang, edtURLAnh, edtMoTa;;
-    private Button btnThem, btnHuy;
+    private Button btnThem, btnHuy,btnWebView;
     private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,8 @@ public class ThemSach extends AppCompatActivity {
 
         btnThem = findViewById(R.id.btnThem);
         btnHuy = findViewById(R.id.btnHuy);
+        btnWebView = findViewById(R.id.btnWebView);
+
         spinner = findViewById(R.id.spinner);
         ArrayList<String> list = new ArrayList<String>();
         list.add("Văn học");list.add("Cổ tích");list.add("Văn học thiếu nhi");list.add("Văn học hiện thực");
@@ -64,6 +66,13 @@ public class ThemSach extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(ThemSach.this, DanhSachSach.class);
                 startActivity(i);
+            }
+        });
+        btnWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent i = new Intent(ThemSach.this, WebView.class);
+                    startActivity(i);
             }
         });
     }

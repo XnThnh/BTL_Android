@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/mnuThemSach" android:title="Thêm sách" />
-    <item android:id="@+id/mnuDangXuat" android:title="Đăng xuất" />
-    <item android:id="@+id/mnuTrichDan" android:title="Trích dẫn" />
-    <item android:id="@+id/mnuThongKe" android:title="Thống kê" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/mnuThemSach" android:title="Thêm sách"
+        android:icon="@drawable/add"
+        app:showAsAction="always"
+        />
 </menu>

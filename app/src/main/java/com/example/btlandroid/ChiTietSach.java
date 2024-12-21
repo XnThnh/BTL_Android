@@ -36,7 +36,7 @@ public class ChiTietSach extends AppCompatActivity {
         ctsImageView = findViewById(R.id.ctsImageView);
         Intent i = getIntent();
         txtCTSTenSach.setText(i.getStringExtra("tenSach"));
-        txtCTSSoTrang.setText(String.valueOf(i.getStringExtra("soTrang")));
+        txtCTSSoTrang.setText(String.valueOf(i.getIntExtra("soTrang",0)));
         txtCTSTacGia.setText(i.getStringExtra("tacGia"));
         txtCTSMoTa.setText(i.getStringExtra("moTa"));
         Glide.with(this).asBitmap().load(i.getStringExtra("anh")).into(ctsImageView);
