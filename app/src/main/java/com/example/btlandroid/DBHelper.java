@@ -64,7 +64,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 "userId INTEGER," +
                 "FOREIGN KEY(userId) REFERENCES User(id))");
 
-
+        db.execSQL("CREATE TABLE IF NOT EXISTS User_Sach (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "userID INTEGER," +
+                "sachID INTEGER," +
+                "ngayDoc INTEGER," +
+                "FOREIGN KEY(userId) REFERENCES User(id),"+
+                "FOREIGN KEY(sachID) REFERENCES Sach(id))");
         db.execSQL("INSERT INTO User (username, password, name) VALUES ('user1', 'password1', 'Nguyễn Văn A')");
         db.execSQL("INSERT INTO User (username, password, name) VALUES ('user2', 'password2', 'Trần Thị B')");
         db.execSQL("INSERT INTO User (username, password, name) VALUES ('user3', 'password3', 'Lê Văn C')");
@@ -146,5 +152,34 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("Sach","tenSach = ?",new String[]{String.valueOf(s)});
         db.close();
+    }
+    public void insertDanhGia(int sachId, String danhGia, int rate) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("danhGia", danhGia);
+        values.put("sachId", sachId);
+        values.put("rate", rate);
+        db.insert("DanhGia", null, values);
+        db.close();
+    }
+    public ArrayList<DanhGia> layDanhSachDanhGia(int sachId) {
+        ArrayList<DanhGia> danhGiaList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM DanhGia WHERE sachId = ?";
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(sachId)});
+        if (cursor.moveToFirst()) {
+            do {
+                DanhGia danhGia = new DanhGia();
+                danhGia.setId(cursor.getInt(0));
+                danhGia.setDanhGia(cursor.getString(1));
+                danhGia.setSachId(cursor.getInt(2));
+                danhGia.setUserId(cursor.getInt(3));
+                danhGia.setRate(cursor.getInt(4));
+                danhGiaList.add(danhGia);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return danhGiaList;
     }
 }

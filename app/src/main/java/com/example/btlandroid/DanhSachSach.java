@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -16,6 +17,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -24,6 +29,7 @@ public class DanhSachSach extends AppCompatActivity {
     private ArrayList<Sach> listSach;
     private BookRecViewAdapter adapter;
     private DBHelper db ;
+    private BottomNavigationView btmNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,37 @@ public class DanhSachSach extends AppCompatActivity {
         adapter = new BookRecViewAdapter(this,listSach);
         recView.setAdapter(adapter);
         recView.setLayoutManager(new GridLayoutManager(this,2));
-        db.xoaSach("a");
+        btmNav = findViewById(R.id.btmNav);
+        btmNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.btmDS){
+                    Intent i = new Intent(DanhSachSach.this,DanhSachSach.class);
+                    startActivity(i);
+                }
+                if(item.getItemId() == R.id.btmTD){
+                    Intent i = new Intent(DanhSachSach.this,TrichDanActivity.class);
+                    startActivity(i);
+                }
+                if(item.getItemId() == R.id.btmDG){
+                    Intent intent = new Intent(DanhSachSach.this, DanhGiaActivity.class);
+                    // Truyền ID sách qua Intent (ví dụ: chọn sách đầu tiên trong danh sách)
+                    if (!listSach.isEmpty()) {
+                        intent.putExtra("sachId", listSach.get(0).getId()); // Thay 0 bằng vị trí sách được chọn
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(DanhSachSach.this, "Không có sách để đánh giá!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(item.getItemId() == R.id.btmDS){
+                    Intent i = new Intent(DanhSachSach.this,DanhSachSach.class);
+                    startActivity(i);
+                }
+                return false;
+            }
+        });
+        db.xoaSach("b");
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,18 +90,6 @@ public class DanhSachSach extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId() == R.id.mnuThemSach){
             Intent i = new Intent(this,ThemSach.class);
-            startActivity(i);
-        }
-//        else if(item.getItemId() == R.id.mnuDangXuat){
-//            Intent i = new Intent(this,DangNhap.class);
-//            startActivity(i);
-//        }
-        if(item.getItemId() == R.id.mnuTrichDan){
-            Intent i = new Intent(this,TrichDanActivity.class);
-            startActivity(i);
-        }
-        if(item.getItemId() == R.id.mnuThongKe){
-            Intent i = new Intent(this,Thongke.class);
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);

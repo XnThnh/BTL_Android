@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btmDS"
+        android:enabled="true"
+        android:icon="@drawable/danhsach"
+        android:title="Sách"/>
+    <item
+        android:id="@+id/btmTD"
+        android:enabled="true"
+        android:icon="@drawable/trichdan"
+        android:title="Trích dẫn"/>
+    <item
+        android:id="@+id/btmTK"
+        android:enabled="true"
+        android:icon="@drawable/thongke"
+        android:title="Thống kê"/>
+    <item
+        android:id="@+id/btmDG"
+        android:enabled="true"
+        android:icon="@drawable/danhgia"
+        android:title="Đánh giá"/>
+</menu>

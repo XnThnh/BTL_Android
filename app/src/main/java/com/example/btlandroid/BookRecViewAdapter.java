@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.material.card.MaterialCardView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private RelativeLayout parent;
+        private MaterialCardView parent;
         private ImageView imageView;
         private TextView txtTenSach;
         private TextView txtTacGia;
