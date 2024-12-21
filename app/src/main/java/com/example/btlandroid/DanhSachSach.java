@@ -70,8 +70,8 @@ public class DanhSachSach extends AppCompatActivity {
                         Toast.makeText(DanhSachSach.this, "Không có sách để đánh giá!", Toast.LENGTH_SHORT).show();
                     }
                 }
-                if(item.getItemId() == R.id.btmDS){
-                    Intent i = new Intent(DanhSachSach.this,DanhSachSach.class);
+                if(item.getItemId() == R.id.btmTK){
+                    Intent i = new Intent(DanhSachSach.this,Thongke.class);
                     startActivity(i);
                 }
                 return false;
